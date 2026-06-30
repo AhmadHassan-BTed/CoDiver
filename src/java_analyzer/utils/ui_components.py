@@ -20,7 +20,7 @@ def render_executive_summary(df: pd.DataFrame, metrics: Dict[str, Any]):
         df: DataFrame containing detected issues
         metrics: Dictionary of code metrics
     """
-    st.markdown("### 📊 Executive Dashboard")
+    st.markdown("###  Executive Dashboard")
     
     col1, col2, col3, col4, col5 = st.columns(5)
     
@@ -62,7 +62,7 @@ def render_code_metrics(metrics: Dict[str, Any]):
     Args:
         metrics: Dictionary of code metrics
     """
-    st.markdown("### 📈 Code Metrics Analysis")
+    st.markdown("###  Code Metrics Analysis")
     
     col1, col2, col3 = st.columns(3)
     
@@ -96,7 +96,7 @@ def render_visualizations(df: pd.DataFrame):
     Args:
         df: DataFrame containing detected issues
     """
-    st.markdown("### 📉 Visual Analytics")
+    st.markdown("###  Visual Analytics")
     
     tab1, tab2, tab3, tab4 = st.tabs(["Distribution", "Severity", "Categories", "Trends"])
     
@@ -198,7 +198,7 @@ def _render_trend_charts(df: pd.DataFrame):
                     color_continuous_scale='Reds')
         st.plotly_chart(fig, use_container_width=True)
     else:
-        st.success("🎉 No trends to worry about - clean codebase!")
+        st.success(" [SUCCESS]  No trends to worry about - clean codebase!")
 
 
 def render_detailed_findings(df: pd.DataFrame):
@@ -208,7 +208,7 @@ def render_detailed_findings(df: pd.DataFrame):
     Args:
         df: DataFrame containing detected issues
     """
-    st.markdown("### 🔍 Detailed Findings")
+    st.markdown("###  Detailed Findings")
     
     if len(df) > 0:
         # Filters
@@ -238,16 +238,16 @@ def render_detailed_findings(df: pd.DataFrame):
         col1, col2, col3 = st.columns([1, 1, 2])
         with col1:
             csv = filtered_df.to_csv(index=False).encode('utf-8')
-            st.download_button("📥 Export CSV", csv, 
+            st.download_button(" Export CSV", csv, 
                              f"analysis_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv", 
                              "text/csv", use_container_width=True)
         with col2:
             json_data = filtered_df.to_json(orient='records', indent=2)
-            st.download_button("📥 Export JSON", json_data,
+            st.download_button(" Export JSON", json_data,
                              f"analysis_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
                              "application/json", use_container_width=True)
     else:
-        st.success("✨ No issues found! Your code meets all quality standards.")
+        st.success(" [SUCCESS]  No issues found! Your code meets all quality standards.")
 
 
 def render_source_code_viewer(source_code: str):
@@ -257,7 +257,7 @@ def render_source_code_viewer(source_code: str):
     Args:
         source_code: The Java source code to display
     """
-    with st.expander("📝 Source Code Viewer"):
+    with st.expander(" [NOTE]  Source Code Viewer"):
         st.code(source_code, language='java', line_numbers=True)
 
 
@@ -272,7 +272,7 @@ def render_summary_report(df: pd.DataFrame, metrics: Dict[str, Any], file_name: 
     """
     if len(df) > 0:
         st.markdown("---")
-        st.markdown("### 📋 Executive Summary Report")
+        st.markdown("###  Executive Summary Report")
         
         report = f"""
 **Analysis Report - {file_name}**
@@ -297,37 +297,37 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         """
         
         st.text_area("Report Summary", report, height=300)
-        st.download_button("📥 Download Full Report", report, 
+        st.download_button(" Download Full Report", report, 
                          f"summary_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
                          use_container_width=True)
 
 
 def render_landing_page():
     """Render the landing page with instructions."""
-    st.markdown("### 🎯 Getting Started")
+    st.markdown("###  Getting Started")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown("""
-        #### 📤 Step 1: Upload
+        ####  Step 1: Upload
         Select your Java source file from the sidebar to begin analysis.
         """)
     
     with col2:
         st.markdown("""
-        #### ⚙️ Step 2: Configure
+        ####  Step 2: Configure
         Choose which analyzers to run based on your needs.
         """)
     
     with col3:
         st.markdown("""
-        #### 🚀 Step 3: Analyze
+        ####  [START]  Step 3: Analyze
         Click "Run Deep Analysis" to get comprehensive insights.
         """)
     
     st.markdown("---")
-    st.markdown("### 🔍 What We Analyze")
+    st.markdown("###  What We Analyze")
     
     col1, col2 = st.columns(2)
     
@@ -368,4 +368,4 @@ def render_landing_page():
         - Class Structure
         """)
     
-    st.info("👆 Upload a Java file from the sidebar to start your comprehensive code analysis")
+    st.info(" Upload a Java file from the sidebar to start your comprehensive code analysis")

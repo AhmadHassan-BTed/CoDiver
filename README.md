@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ CoDiver: Code Sniffer & Project Analyzer
+#  CoDiver: Code Sniffer & Project Analyzer
 
 *An advanced, open-source unified platform for code quality, architecture metrics, and Agile analytics.*
 
@@ -9,7 +9,7 @@
 [![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg?style=for-the-badge)](#)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-🚀-blue?style=for-the-badge)](https://codiver.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo--blue?style=for-the-badge)](https://codiver.streamlit.app/)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 📖 The Philosophy
+##  The Philosophy
 
 Software is inherently human. Behind every line of code, every architectural decision, and every sprint metric lies human effort and engineering intent. The **CoDiver: Code Sniffer & Project Analyzer** was built on the premise that technical debt shouldn't be an abstract concept - it should be deeply visible, understandable, and actionable.
 
@@ -26,7 +26,7 @@ This platform bridges the gap between raw codebase complexity and human understa
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 The platform operates on a **Zero-Coupling, Event-Reactive Architecture**. The frontend strictly delegates analysis to isolated backend engines, which parse raw files into Abstract Syntax Trees (ASTs) on the fly.
 
@@ -36,11 +36,11 @@ graph TD
     classDef controller fill:#475569,stroke:#94a3b8,stroke-width:2px,color:#fff;
     classDef engine fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#fff;
     
-    UI[🖥️ Streamlit Frontend]:::frontend -->|Unified File Upload| Controller[⚙️ Universal Control Center]:::controller
+    UI[ Streamlit Frontend]:::frontend -->|Unified File Upload| Controller[ Universal Control Center]:::controller
     
-    Controller -->|Routes .py| PythonEngine[🐍 Python AST Engine]:::engine
-    Controller -->|Routes .java| JavaEngine[☕ Java AST Engine]:::engine
-    Controller -->|Routes .json| AgileEngine[🏃 Agile Process Engine]:::engine
+    Controller -->|Routes .py| PythonEngine[ Python AST Engine]:::engine
+    Controller -->|Routes .java| JavaEngine[ Java AST Engine]:::engine
+    Controller -->|Routes .json| AgileEngine[ Agile Process Engine]:::engine
     
     subgraph Core Analyzers
         PythonEngine --> PyMetrics[Complexity & Code Metrics]
@@ -48,7 +48,7 @@ graph TD
         AgileEngine --> SprintMetrics[Velocity & Scope Creep]
     end
     
-    PyMetrics --> Aggregator[📊 Results Aggregator]
+    PyMetrics --> Aggregator[ Results Aggregator]
     JavaSmells --> Aggregator
     SprintMetrics --> Aggregator
     
@@ -57,16 +57,16 @@ graph TD
 
 ---
 
-## ⚙️ Request Lifecycle & Data Flow
+##  Request Lifecycle & Data Flow
 
 Data flows deterministically from the browser, through the AST generators, into Pandas dataframes, and back out to Plotly visuals. The UI remains fully stateless until explicitly commanded to execute an analysis.
 
 ```mermaid
 sequenceDiagram
     participant User as Developer
-    participant UI as 🖥️ UI (app.py)
-    participant Engine as ⚙️ Analyzer Engine
-    participant State as 💾 Session State
+    participant UI as  UI (app.py)
+    participant Engine as  Analyzer Engine
+    participant State as  Session State
     
     User->>UI: Uploads Source Code (.py, .java)
     UI->>UI: Auto-categorize by extension
@@ -91,12 +91,12 @@ sequenceDiagram
 
 ---
 
-## 🧩 Internal Module Structure
+##  Internal Module Structure
 
 The repository enforces a strict separation between UI logic and calculation algorithms to guarantee high cohesion and maintainability at scale.
 
 <details>
-<summary><b>📂 Click to expand the Project Tree</b></summary>
+<summary><b> Click to expand the Project Tree</b></summary>
 
 ```text
 CoDiver/
@@ -118,7 +118,7 @@ CoDiver/
 
 ---
 
-## ✨ System Capabilities
+##  System Capabilities
 
 | Subsystem | Core Responsibilities | Underlying Tech |
 | :--- | :--- | :--- |
@@ -129,16 +129,16 @@ CoDiver/
 
 ---
 
-## 🚀 Build & Deployment Pipeline
+##  Build & Deployment Pipeline
 
 Because this application leverages a robust Python backend for intensive AST processing, it is deployed natively via containerized Python runtimes (and cannot be served statically via standard GitHub Pages).
 
-### 🌐 Live Demo
+###  Live Demo
 The platform is currently live and operational on Streamlit Community Cloud.
 
 **Access the live suite here:** [codiver.streamlit.app](https://codiver.streamlit.app/)
 
-### 🚀 Self-Hosting & Deployment
+###  Self-Hosting & Deployment
 Because this application leverages a robust Python backend for intensive AST processing, it is deployed natively via containerized Python runtimes.
 
 #### Deployment via Streamlit Cloud (Recommended)
@@ -164,7 +164,7 @@ streamlit run app.py
 
 ---
 
-## 🤝 Development & Contribution
+##  Development & Contribution
 
 New ideas, architectural optimizations, and structural improvements are warmly welcomed. The system is designed to be highly extensible - adding support for a new language parser simply requires introducing a new module within `src/` and wiring it to the Universal Control Center in `app.py`.
 
@@ -172,13 +172,13 @@ New ideas, architectural optimizations, and structural improvements are warmly w
 
 ---
 
-## 👨‍💻 Engineering Credits
+##  Engineering Credits
 
 **Ahmad Hassan (B-Ted)**  
 *Software Engineer*
 
 This architecture was designed and engineered from the ground up to solve complex software quality tracking constraints using modern, event-driven Python web paradigms. 
 
-## 📄 License
+##  License
 
 This repository is published under the [MIT License](LICENSE), promoting open knowledge and collaborative engineering.

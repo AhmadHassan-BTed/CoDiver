@@ -22,7 +22,7 @@ def render_summary_metrics(df: pd.DataFrame, total_kloc: float, cocomo: dict):
         st.metric("Estimated Team Size (persons)", cocomo['staff'])
 
 def render_recommendations(df: pd.DataFrame, threshold: int):
-    st.subheader("💡 Refactoring Recommendations")
+    st.subheader(" [TIP]  Refactoring Recommendations")
     complex_files = df[df['cyclomatic_complexity'] > threshold]
     if not complex_files.empty:
         for _, row in complex_files.iterrows():

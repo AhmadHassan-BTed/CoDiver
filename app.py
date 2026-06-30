@@ -13,7 +13,7 @@ sys.path.append(str(ROOT_DIR / "src" / "java_analyzer"))
 # Global Page Configuration
 st.set_page_config(
     page_title="CoDiver: Code Sniffer & Project Analyzer",
-    page_icon="🛡️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -61,31 +61,31 @@ from software_metrics.ui.components.charts import (
 initialize_session_state()
 
 def render_unified_landing():
-    st.markdown('<h1 class="main-header">🛡️ CoDiver: Code Sniffer & Project Analyzer</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> CoDiver: Code Sniffer & Project Analyzer</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Unified Code Quality, Architecture Metrics & Agile Process Analytics<br><i>An Open Source Project by Ahmad Hassan (B-Ted)</i></p>', unsafe_allow_html=True)
     
-    st.markdown("### 🎯 Unified Capabilities")
+    st.markdown("###  Unified Capabilities")
     
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("#### ☕ Architecture & Static Analysis")
+        st.markdown("####  Architecture & Static Analysis")
         st.markdown("- Deep AST Code Smell Detection\n- Design & Implementation Flaws\n- Maintainability Index")
     with col2:
-        st.markdown("#### 📊 Code Metrics")
+        st.markdown("####  Code Metrics")
         st.markdown("- Cyclomatic & Cognitive Complexity\n- Defect Density Prediction\n- COCOMO Estimation")
     with col3:
-        st.markdown("#### 🏃 Agile Process")
+        st.markdown("####  Agile Process")
         st.markdown("- Velocity Tracking\n- Scope Creep Analysis\n- Sprint Burndown")
     
     st.markdown("---")
-    st.markdown("### 🔍 How to Use")
+    st.markdown("###  How to Use")
     st.markdown("""
     1. **Upload Files:** Use the Control Center sidebar to upload any combination of source code files or Agile JSON data into the single Source Code uploader.
     2. **Configure Engines:** Adjust thresholds and toggle specific analyzers (like Design Smells) to tailor the strictness.
     3. **Execute:** Click the "Execute CoDiver Analysis" button to process all uploaded artifacts simultaneously.
     4. **Review Results:** Navigate through the dynamically generated tabs to explore unified insights seamlessly.
     """)
-    st.info("👆 Awaiting data... Upload files from the Control Center to begin.")
+    st.info(" Awaiting data... Upload files from the Control Center to begin.")
 
 def render_python_results(python_files, show_recommendations, complexity_threshold):
     metrics_data = []
@@ -119,8 +119,8 @@ def render_python_results(python_files, show_recommendations, complexity_thresho
         render_summary_metrics(df, total_kloc, cocomo)
 
         st.markdown("---")
-        st.subheader("🔍 Detailed Code Metrics")
-        ptabs = st.tabs(["📝 Code Metrics", "🧠 Complexity Analysis", "📉 Quality Indicators"])
+        st.subheader(" Detailed Code Metrics")
+        ptabs = st.tabs([" [NOTE]  Code Metrics", " Complexity Analysis", " Quality Indicators"])
 
         with ptabs[0]:
             st.dataframe(df, use_container_width=True)
@@ -155,7 +155,7 @@ def render_agile_results(sprint_data):
 
 def main():
     with st.sidebar:
-        st.markdown("## 📂 Universal Control Center")
+        st.markdown("##  Universal Control Center")
         
         st.markdown("### Source Code (Auto-Detect)")
         # UNIFIED SINGLE UPLOADER FOR BOTH PYTHON AND JAVA
@@ -166,7 +166,7 @@ def main():
         defect_data = st.file_uploader("Upload Defect Data (JSON)", type=['json'])
         
         st.markdown("---")
-        st.markdown("### ⚙️ Engine Configuration")
+        st.markdown("###  Engine Configuration")
         
         with st.expander("Global Analysis Parameters", expanded=True):
             show_recommendations = st.checkbox("Enable Refactoring Recommendations", value=True)
@@ -184,10 +184,10 @@ def main():
             }
             
         st.markdown("---")
-        analyze_btn = st.button("🚀 Execute CoDiver Analysis", type="primary", use_container_width=True)
+        analyze_btn = st.button(" [START]  Execute CoDiver Analysis", type="primary", use_container_width=True)
         
-        st.caption("🔧 Unified Platform v4.1")
-        st.caption(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        st.caption(" Unified Platform v4.1")
+        st.caption(f" {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         st.markdown("---")
         st.markdown(
             "**Open Source Project**\n\n"
@@ -208,12 +208,12 @@ def main():
     if not has_content:
         render_unified_landing()
     else:
-        st.markdown('<h1 class="main-header">📊 Unified Analysis Results</h1>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-header"> Unified Analysis Results</h1>', unsafe_allow_html=True)
         
         tab_names = []
-        if python_files: tab_names.append("📊 Code Metrics")
-        if java_files: tab_names.append("☕ Architecture & Smells")
-        if sprint_data: tab_names.append("🏃 Agile Analytics")
+        if python_files: tab_names.append(" Code Metrics")
+        if java_files: tab_names.append(" Architecture & Smells")
+        if sprint_data: tab_names.append(" Agile Analytics")
         
         if not tab_names:
             return

@@ -61,7 +61,7 @@ def configure_page():
 
 def render_header():
     """Render the main application header."""
-    st.markdown('<h1 class="main-header">🛡️  Java Static Analyzer</h1>', 
+    st.markdown('<h1 class="main-header">  Java Static Analyzer</h1>', 
                 unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Advanced Technical Debt Detection & Code Quality Intelligence Platform</p>', 
                 unsafe_allow_html=True)
@@ -75,7 +75,7 @@ def render_sidebar():
         Tuple of (uploaded_file, analyze_button_clicked, config_dict)
     """
     with st.sidebar:
-        st.markdown("### 📂 Control Center")
+        st.markdown("###  Control Center")
         
         # File uploader
         uploaded_file = st.file_uploader(
@@ -87,7 +87,7 @@ def render_sidebar():
         st.markdown("---")
         
         # Analysis configuration
-        with st.expander("⚙️ Analysis Configuration"):
+        with st.expander(" Analysis Configuration"):
             enable_design = st.checkbox("Design Smells", value=True)
             enable_implementation = st.checkbox("Implementation Smells", value=True)
             enable_naming = st.checkbox("Naming Conventions", value=True)
@@ -102,7 +102,7 @@ def render_sidebar():
         
         # Analyze button
         analyze_btn = st.button(
-            "🚀 Run Deep Analysis",
+            " [START]  Run Deep Analysis",
             type="primary",
             use_container_width=True
         )
@@ -110,7 +110,7 @@ def render_sidebar():
         st.markdown("---")
         
         # Analysis scope information
-        st.markdown("### 📊 Analysis Scope")
+        st.markdown("###  Analysis Scope")
         st.markdown("""
         - ✅ Design Pattern Violations
         - ✅ Cyclomatic Complexity
@@ -123,12 +123,12 @@ def render_sidebar():
         st.markdown("---")
         
         # Version and timestamp
-        st.caption("🔧 Ahmad Hassan")
-        st.caption("🔧 Muhammad Abdullah")
-        st.caption("🔧 Nayyar Abbas")
-        st.caption("🔧 Faraz Ashraf")
-        st.caption("🔧 Ahsan Ali Khan")
-        st.caption(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        st.caption(" Ahmad Hassan")
+        st.caption(" Muhammad Abdullah")
+        st.caption(" Nayyar Abbas")
+        st.caption(" Faraz Ashraf")
+        st.caption(" Ahsan Ali Khan")
+        st.caption(f" {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     return uploaded_file, analyze_btn, config
 
@@ -145,11 +145,11 @@ def render_file_info(file_name: str, file_size: int, line_count: int):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.info(f"📄 **File:** {file_name}")
+        st.info(f" **File:** {file_name}")
     with col2:
-        st.info(f"💾 **Size:** {file_size} bytes")
+        st.info(f" **Size:** {file_size} bytes")
     with col3:
-        st.info(f"📏 **Lines:** {line_count}")
+        st.info(f" **Lines:** {line_count}")
 
 
 def handle_analysis(source_code: str, config: dict = None):
@@ -163,7 +163,7 @@ def handle_analysis(source_code: str, config: dict = None):
     engine = StaticAnalyzerEngine(source_code, config)
     
     try:
-        with st.spinner("🔄 Parsing AST nodes and executing analyzers..."):
+        with st.spinner(" Parsing AST nodes and executing analyzers..."):
             results, tree = engine.run()
             metrics = engine.calculate_metrics(tree)
             
@@ -173,7 +173,7 @@ def handle_analysis(source_code: str, config: dict = None):
             
     except ValueError as ve:
         st.error(f"❌ **Validation Error:** {ve}")
-        st.info("💡 Please ensure your Java file has valid syntax and try again.")
+        st.info(" [TIP]  Please ensure your Java file has valid syntax and try again.")
     except Exception as e:
         st.error(f"❌ **System Error:** {e}")
         st.exception(e)

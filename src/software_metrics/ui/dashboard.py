@@ -16,13 +16,13 @@ from software_metrics.calculators.agile import analyze_agile_metrics
 def run_app():
     
 
-    st.title("🚀 Advanced Software Metrics Analysis Dashboard")
+    st.title(" [START]  Advanced Software Metrics Analysis Dashboard")
     st.markdown("---")
 
     python_files, sprint_data, defect_data, show_recommendations, complexity_threshold = render_sidebar()
 
     if python_files:
-        st.header("📊 Code Analysis Results")
+        st.header(" Code Analysis Results")
         metrics_data = []
         total_kloc = 0
 
@@ -53,8 +53,8 @@ def run_app():
             render_summary_metrics(df, total_kloc, cocomo)
 
             st.markdown("---")
-            st.subheader("🔍 Detailed Metrics Analysis")
-            tabs = st.tabs(["📝 Code Metrics", "🧠 Complexity Analysis", "📉 Quality Indicators"])
+            st.subheader(" Detailed Metrics Analysis")
+            tabs = st.tabs([" [NOTE]  Code Metrics", " Complexity Analysis", " Quality Indicators"])
 
             with tabs[0]:
                 st.dataframe(df, use_container_width=True)
@@ -69,7 +69,7 @@ def run_app():
                 render_quality_bar(df, total_kloc)
 
             st.download_button(
-                label="📥 Download Full Metrics Report (CSV)",
+                label=" Download Full Metrics Report (CSV)",
                 data=df.to_csv(index=False),
                 file_name="metrics_report.csv",
                 mime="text/csv"
@@ -77,7 +77,7 @@ def run_app():
 
     if sprint_data:
         st.markdown("---")
-        st.header("🏃 Agile Metrics Analysis")
+        st.header(" Agile Metrics Analysis")
         try:
             sprint_json = json.load(sprint_data)
             sprint_df = pd.DataFrame(sprint_json)
